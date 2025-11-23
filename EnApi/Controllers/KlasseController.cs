@@ -28,7 +28,7 @@ namespace EnApi.Controllers
 
             return Ok(klasse);
         }
-        //hej
+        //hejwefwef
         //// GET api/<KlasseController>/5
         //[HttpGet("{id}")]
         //public string Get(int id)
