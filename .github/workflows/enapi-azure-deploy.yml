@@ -1,0 +1,40 @@
+name: Build and deploy EnApi to Azure Web App
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  AZURE_WEBAPP_NAME: EnApi20251123141729Planrthjrth
+  DOTNET_VERSION: '9.0.x'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore dependencies
+        run: dotnet restore EnApi.csproj
+
+      - name: Build
+        run: dotnet build EnApi.csproj --configuration Release --no-restore
+
+      - name: Publish app
+        run: dotnet publish EnApi.csproj -c Release -o ./published
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.TEST }}
+          package: ./published
