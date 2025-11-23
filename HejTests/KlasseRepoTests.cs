@@ -24,5 +24,11 @@ namespace Hej.Tests
         {
             Assert.IsNotNull(_repo);
         }
+
+        [TestMethod]
+        public void Test2()
+        {
+            Assert.Fail();
+        }
     }
 }
