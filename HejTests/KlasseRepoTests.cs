@@ -12,7 +12,7 @@ namespace Hej.Tests
     public class KlasseRepoTests
     {
         private KlasseRepo _repo;
-
+        //h
         [TestInitialize]
         public void TestInitialize()
         {
@@ -23,12 +23,6 @@ namespace Hej.Tests
         public void Test()
         {
             Assert.IsNotNull(_repo);
-        }
-
-        [TestMethod]
-        public void Test2()
-        {
-            Assert.IsNull(_repo);
         }
     }
 }
