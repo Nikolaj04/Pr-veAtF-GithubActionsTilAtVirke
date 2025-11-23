@@ -14,7 +14,7 @@ namespace EnApi.Controllers.Tests
         [TestMethod()]
         public void KlasseControllerTest()
         {
-            Assert.Fail();
+            Assert.AreEqual("2", "HEJ");
         }
 
         [TestMethod()]
